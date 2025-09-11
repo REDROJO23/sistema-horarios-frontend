@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import RegistroPage from './pages/RegistroPage';
-import ConsultaPage from './pages/ConsultaPage';
+import RegistroPage from '../pages/RegistroPage';
+import ConsultaPage from '../pages/ConsultaPage';
 
 function App() {
   return (
