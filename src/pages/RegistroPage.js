@@ -44,12 +44,21 @@ function RegistroPage() {
       return;
     }
 
-    await axios.post(`${API_URL}/registro`, form);
-    setForm({ nombre: '', hora_entrada: '', hora_salida: '', fecha: '', clave: '' });
+    console.log('📤 Enviando datos al backend:', form);
+
+    try {
+      const res = await axios.post(`${API_URL}/registro`, form);
+      console.log('✅ Respuesta del backend:', res.data);
+      alert(res.data.mensaje || 'Registro exitoso');
+      setForm({ nombre: '', hora_entrada: '', hora_salida: '', fecha: '', clave: '' });
+    } catch (error) {
+      console.error('❌ Error al registrar:', error);
+      alert('Error al registrar los datos');
+    }
   };
 
   const consultar = () => {
-    const clavesValidas = ['anastacio010', 'xiomara022', 'julio003','mariacarmen333','victor004','mariana044'];
+    const clavesValidas = ['anastacio010', 'xiomara022', 'julio003', 'mariacarmen333', 'victor004', 'mariana044'];
 
     if (!consulta) {
       alert('Ingresa un nombre para consultar');
