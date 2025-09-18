@@ -115,6 +115,7 @@ h2 {
   width: 98%;
   margin-left: auto;
   margin-right: auto;
+  -webkit-overflow-scrolling: touch; /* mejora el scroll en iOS */
 }
 
 .resultados-table {
@@ -122,6 +123,7 @@ h2 {
   border-collapse: collapse;
   color: white;
   table-layout: fixed;
+  min-width: 600px; /* fuerza scroll horizontal en pantallas estrechas */
 }
 
 .resultados-table th,
@@ -169,5 +171,11 @@ h2 {
   h2 {
     font-size: 1.2rem;
     margin-left: 5%;
+  }
+
+  .resultados-table th,
+  .resultados-table td {
+    font-size: 0.75rem;
+    padding: 0.5rem;
   }
 }
