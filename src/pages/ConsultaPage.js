@@ -65,7 +65,7 @@ function ConsultaPage() {
                       <td>{r.nombre}</td>
                       <td>{r.hora_entrada}</td>
                       <td>{r.hora_salida || '—'}</td>
-                      <td className="fecha">{new Date(r.fecha).toLocaleDateString()}</td>
+                      <td className="fecha">{r.fecha.slice(0, 10)}</td>
                       <td>
                         <button className="btn-naranja boton-pequeno" onClick={() => eliminar(r.id)}>Eliminar</button>
                       </td>
