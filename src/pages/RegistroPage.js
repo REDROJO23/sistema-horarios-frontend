@@ -77,38 +77,42 @@ function RegistroPage() {
             value={form.nombre}
             onChange={handleChange}
             onKeyDown={(e) => handleKeyDown(e, entradaRef)}
-       <input
-       className="input-pequeno"
-       type="text"
-       name="hora_entrada"
-       placeholder="hh-mm (ej. 08-30 o 00-00)"
-       value={form.hora_entrada}
-       onChange={handleChange}
-       ref={entradaRef}
-       onKeyDown={(e) => handleKeyDown(e, salidaRef)}
-      />
+          />
+        </div>
 
-     <input
-     className="input-pequeno"
-     type="text"
-     name="hora_salida"
-     placeholder="hh-mm (ej. 17-45 o 00-00)"
-     value={form.hora_salida}
-     onChange={handleChange}
-     ref={salidaRef}
-    onKeyDown={(e) => handleKeyDown(e, fechaRef)}
-   />
+        <input
+          className="input-pequeno"
+          type="text"
+          name="hora_entrada"
+          placeholder="hh-mm (ej. 08-30 o 00-00)"
+          value={form.hora_entrada}
+          onChange={handleChange}
+          ref={entradaRef}
+          onKeyDown={(e) => handleKeyDown(e, salidaRef)}
+        />
 
-  <input
-   className="input-pequeno"
-    type="text"
-    name="fecha"
-    placeholder="dd-mm-aaaa (ej. 05-10-2025)"
-    value={form.fecha}
-    onChange={handleChange}
-    ref={fechaRef}
-     onKeyDown={(e) => handleKeyDown(e, claveRegistroRef)}
-      />
+        <input
+          className="input-pequeno"
+          type="text"
+          name="hora_salida"
+          placeholder="hh-mm (ej. 17-45 o 00-00)"
+          value={form.hora_salida}
+          onChange={handleChange}
+          ref={salidaRef}
+          onKeyDown={(e) => handleKeyDown(e, fechaRef)}
+        />
+
+        <input
+          className="input-pequeno"
+          type="text"
+          name="fecha"
+          placeholder="dd-mm-aaaa (ej. 05-10-2025)"
+          value={form.fecha}
+          onChange={handleChange}
+          ref={fechaRef}
+          onKeyDown={(e) => handleKeyDown(e, claveRegistroRef)}
+        />
+
         <input
           className="input-pequeno"
           type="password"
@@ -119,6 +123,7 @@ function RegistroPage() {
           ref={claveRegistroRef}
           onKeyDown={(e) => handleKeyDown(e, consultaRef)}
         />
+
         <div className="botones-centrados">
           <button className="btn-purpura boton-pequeno" onClick={registrar}>Registrar</button>
         </div>
@@ -134,6 +139,7 @@ function RegistroPage() {
             onKeyDown={(e) => handleKeyDown(e, claveConsultaRef)}
           />
         </div>
+
         <input
           className="input-pequeno"
           type="password"
@@ -145,6 +151,7 @@ function RegistroPage() {
             if (e.key === 'Enter') consultar();
           }}
         />
+
         <div className="botones-centrados">
           <button className="btn-verde boton-pequeno" onClick={consultar}>Consultar</button>
         </div>
