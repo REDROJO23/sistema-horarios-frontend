@@ -33,9 +33,29 @@ function RegistroPage() {
     }
   };
 
+  const validarFecha = (fecha) => {
+    const regex = /^\d{2}-(ene|feb|mar|abr|may|jun|jul|ago|sep|oct|nov|dic)-\d{4}$/i;
+    return regex.test(fecha);
+  };
+
+  const convertirFecha = (fecha) => {
+    const [dia, mesTexto, año] = fecha.split('-');
+    const meses = {
+      ene: '01', feb: '02', mar: '03', abr: '04', may: '05', jun: '06',
+      jul: '07', ago: '08', sep: '09', oct: '10', nov: '11', dic: '12'
+    };
+    const mes = meses[mesTexto.toLowerCase()];
+    return `${año}-${mes}-${dia}`;
+  };
+
   const registrar = async () => {
     if (!form.nombre || !form.fecha || !form.clave) {
       alert('Por favor, completa nombre, fecha y contraseña');
+      return;
+    }
+
+    if (!validarFecha(form.fecha)) {
+      alert('Formato de fecha inválido. Usa dd-mmm-aaaa (ej. 05-oct-2025)');
       return;
     }
 
@@ -44,7 +64,9 @@ function RegistroPage() {
       return;
     }
 
-    await axios.post(`${API_URL}/registro`, form);
+    const fechaConvertida = convertirFecha(form.fecha);
+
+    await axios.post(`${API_URL}/registro`, { ...form, fecha: fechaConvertida });
     setForm({ nombre: '', hora_entrada: '', hora_salida: '', fecha: '', clave: '' });
   };
 
@@ -106,7 +128,7 @@ function RegistroPage() {
           className="input-pequeno"
           type="text"
           name="fecha"
-          placeholder="dd-mm-aaaa (ej. 05-10-2025)"
+          placeholder="dd-mmm-aaaa (ej. 05-oct-2025)"
           value={form.fecha}
           onChange={handleChange}
           ref={fechaRef}
